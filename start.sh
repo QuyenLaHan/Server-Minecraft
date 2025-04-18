@@ -1,10 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
 
-# Tải Purpur nếu chưa có
-if [ ! -f purpur-1.20.4.jar ]; then
-  echo "Đang tải Purpur 1.20.4 bằng wget..."
-  wget -O purpur-1.20.4.jar https://api.purpurmc.org/v2/purpur/1.20.4/latest/download
+# Tên file Purpur jar
+JAR="purpur-1.20.4.jar"
+
+# 1) Nếu chưa có JAR, tự tải về
+if [ ! -f "$JAR" ]; then
+  echo "Downloading Purpur $JAR..."
+  wget -q -O "$JAR" https://api.purpurmc.org/v2/purpur/1.20.4/latest/download
 fi
 
-# Chạy server
-java -Xms512M -Xmx1G -jar purpur-1.20.4.jar nogui
+# 2) Chạy server với flags tắt container support và giới hạn RAM
+echo "Starting Purpur server..."
+exec java \
+  -Djdk.internal.platform.cgroup.disable=true \
+  -XX:-UseContainerSupport \
+  -Xms512M -Xmx1G \
+  -XX:+UseG1GC \
+  -jar "$JAR" nogui
