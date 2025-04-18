@@ -7,4 +7,4 @@ if [ ! -f purpur-1.20.4.jar ]; then
 fi
 
 # Chạy server
-java -Xms1G -Xmx1G -jar purpur-1.20.4.jar nogui
+java -Xms512M -Xmx1G -jar purpur-1.20.4.jar nogui
