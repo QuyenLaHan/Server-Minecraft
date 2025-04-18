@@ -1,0 +1,10 @@
+{
+"name": "Minecraft Purpur Codespace",
+"build": {
+"dockerfile": "Dockerfile"
+},
+"forwardPorts": [25565],
+"postCreateCommand": "chmod +x start.sh",
+"settings": {},
+"remoteUser": "vscode"
+}
