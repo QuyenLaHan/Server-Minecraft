@@ -21,6 +21,3 @@ exec java \
   -Xms2G -Xmx2G \
   -XX:+UseG1GC \
   -jar "$JAR" nogui &
-
-# Follow logs
-tail -f logs/latest.log
