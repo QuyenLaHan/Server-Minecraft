@@ -18,5 +18,5 @@ export TERM=xterm-256color
 
 #Run with container flags and memory limits
 
-exec java -Djdk.internal.platform.cgroup.disable=true -XX:-UseContainerSupport -Djava.awt.headless=true -Dterminal.jline=false -Xms512M -Xmx1G -XX:+UseG1GC -jar "$JAR" nogui
+exec java -Djdk.internal.platform.cgroup.disable=true -XX:-UseContainerSupport -Djava.awt.headless=true -Dterminal.jline=false -Xms512M -Xmx512M -XX:+UseG1GC -jar "$JAR" nogui
 
