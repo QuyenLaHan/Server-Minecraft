@@ -12,7 +12,7 @@ echo "Đang khởi động máy chủ Minecraft..."
 
 # Chạy server với cấu hình tối ưu trong container
 java \
-  -Xms512M -Xmx1024M \
+  -Xms512M -Xmx512M \
   -Djdk.internal.platform.cgroup.disable=true \
   -XX:-UseContainerSupport \
   -Djava.awt.headless=true \
